@@ -11,6 +11,7 @@ let ctrl
 let modalOpen
 let ekran = "main"
 let stareVal = ""
+let motywSchowany = true
 const modal = document.getElementById("modal");
 const span = document.getElementsByClassName("close")[0];
 const overlay = document.querySelector(".overlay")

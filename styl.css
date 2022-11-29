@@ -3,7 +3,7 @@
 :root {
     --czcionka: "Montserrat";
     --background: hsl(0, 0%, 0%);
-    --akcent: hsl(0, 0%, 0%);
+    --akcent: hsl(0, 0%, 100%);
     --kolorTekstu: hsl(0, 0%, 100%);
 }
 
@@ -19,15 +19,13 @@ body {
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
     margin-top: 20px;
 }
 
 h3 {
     margin-bottom: 30px;
 }
-
-
 
 .overlay {
     z-index: 99;
@@ -298,9 +296,11 @@ h3 {
     #shortcuts {
         display: none;
     }
-
     .content {
         width: 90vw;
         margin-left: 5vw;
+    }
+    .slowoPytania {
+        font-size: 120%;
     }
 }
