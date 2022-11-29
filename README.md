@@ -12,7 +12,7 @@ Posiada ona w miare minimalistyczny wygląd i parę motywów do wyboru. <br>
 Na chwile obecną są 4 kierunki po około 60 słów.
 
 # Jak mam sie do niej dostać?
-Strona jest dostępna [tutaj.](wojtas3422.github.io/EnFish)
+Strona jest dostępna [tutaj.](https://wojtas3422.github.io/EnFish)
 
 # Uwagi
 - Niestety aplikacja nie posiada własnych słów, ponieważ brakło mi na to czasu
