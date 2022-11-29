@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styl.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnFish</title>
+</head>
+
+<body onload="load()">
+    <div id="modal" class="modal">
+        <div class="modalTekst">
+            <span class="close">&times; <br> <span class="klawisz">esc</span></span>
+            <h1>Skróty klawiszowe</h1>
+            <h3>Aplikacje da się nawigować w pełni bez użycia myszki <br> tutaj są wypisane wszystkie klaiwsze jakich
+                można użyć:</h3>
+            <div class="skrotyOpis">
+                <div>
+                    <h2>Wybór kategori</h2>
+                    <p>Wybierz kategorię, od lewej do prawej</p>
+                    <span class="klawisz">1-9</span>
+                </div>
+                <div>
+                    <h2>Pytania</h2>
+                    <p>Wróć do wyboru kategori</p>
+                    <span class="klawisz">esc</span>
+                    <p>Zaznacz pole tekstowe</p>
+                    <span class="klawisz">.</span>
+                    <p>Wpisz znowu ostatnio źle wpisane słowo</p>
+                    <span class="klawisz">🠕</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: block;" class="overlay"></div>
+    <div style="display: block;" class="content">
+        <h1>🇬🇧 EnFish🐟</h1>
+        <h3 style="margin-bottom: 10px;">Strona z fiszkami od angielskiego.</h3>
+        <h4>pytania w języku angielskim będą widoczne w kolorze <span style="color: #517aff;;">niebieskim</span>, a
+            pytania w języku polskim <span style="color: #ff5252f5;">czerwonym.</span></h4>
+        <h4 id="shortcuts" style="margin-top: 0.5em;"> <span class="klawisz">ctrl</span> + <span
+                  class="klawisz">/</span> aby
+            wyświetlić skróty klawiszowe</h4>
+        <h1>Wybierz kategorie:</h1>
+        <div id="kategoria">
+            <button class="kategoria" id="ti" onclick="wybierzKategorie('ti')">Technik Informatyk</button>
+            <button class="kategoria" id="tz" onclick="wybierzKategorie('tziug')">Technik żywienia</button>
+            <button class="kategoria" id="tmr" onclick="wybierzKategorie('tmr')">Technik mechanizacji rolnictwa</button>
+            <button class="kategoria" id="th" onclick="wybierzKategorie('th')">Technik hotelarstwa</button>
+        </div>
+    </div>
+    <div style="display: none;" class="question">
+        <button class="return" onclick="menu()">Wróc do menu</button>
+        <h1 id="pytanie"></h1>
+        <form id="form" onsubmit="odpowiedz(); return false">
+            <input autocomplete="off" placeholder="Odpowiedź..." id="numer" type="text">
+        </form>
+    </div>
+</body>
+
+</html>

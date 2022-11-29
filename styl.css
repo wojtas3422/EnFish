@@ -1,0 +1,306 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+:root {
+    --czcionka: "Montserrat";
+    --background: hsl(0, 0%, 0%);
+    --akcent: hsl(0, 0%, 0%);
+    --kolorTekstu: hsl(0, 0%, 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--czcionka);
+    background-color: var(--background);
+    color: var(--kolorTekstu);
+}
+
+h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h3 {
+    margin-bottom: 30px;
+}
+
+
+
+.overlay {
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--background);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalTekst {
+    background-color: var(--background);
+    margin: 5% auto;
+    border: 2px solid var(--kolorTekstu);
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal>.modalTekst>h1 {
+    margin-bottom: 5px !important;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close>.klawisz {
+    font-size: 20px;
+}
+
+.skrotyOpis {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.skrotyOpis>div>p {
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* styl dla wyboru kategorii */
+.content {
+    text-align: center;
+    width: 100vw;
+    height: 97vh;
+}
+
+.klawisz {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 5px 2px black;
+    background-color: rgb(127, 128, 136);
+    padding: 3px 10px;
+    border-radius: 3px;
+    color: var(--kolorTekstu) !important;
+}
+
+.kategoria {
+    position: relative;
+    background-color: transparent;
+    font-family: var(--czcionka);
+    font-size: 150%;
+    height: 130px;
+    width: 230px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--akcent);
+    cursor: pointer;
+    color: var(--kolorTekstu);
+}
+
+.kategoria::after {
+    z-index: -99;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    background-size: cover;
+    background-size: 100% 100%;
+    background-position: 50%;
+    transition: all 0.3s;
+    filter: blur(2px) brightness(30%);
+}
+
+.kategoria:hover::after {
+    background-size: 110% 110%;
+    filter: blur(0px) brightness(50%);
+}
+
+
+#ti::after {
+    background-image: url(obrazy/technik_informatyk.jpg);
+}
+
+#tz::after {
+    background-image: url(obrazy/technik_żywienia.jpg);
+}
+
+#tmr::after {
+    background-image: url(obrazy/technikum_mechanizacji_rolnictwa.jpg);
+}
+
+#th::after {
+    background-image: url(obrazy/technik_hotelarstwa.jpg);
+}
+
+#kategoria {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* styl dla pytań */
+.question {
+    display: grid;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.return {
+    border-radius: 0;
+    border: none;
+    height: 50px;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 150%;
+    color: var(--kolorTekstu);
+    font-family: var(--czcionka);
+    cursor: pointer;
+}
+
+#numer {
+    width: 17ch;
+    border-radius: 30px;
+    border: 2px solid var(--kolorTekstu);
+    background-color: transparent;
+    place-self: center;
+    outline: none !important;
+    height: 30px;
+    text-align: center;
+    color: var(--kolorTekstu);
+    transition: all 0.5s;
+    font-family: var(--czcionka);
+    font-weight: bolder;
+}
+
+#numer:focus {
+    width: 300px;
+}
+
+.slowoPytania {
+    color: lightblue;
+    font-size: 150%;
+}
+
+@keyframes zlaOdp {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-3px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(3px, 0, 0);
+    }
+
+    50% {
+        color: red;
+        border: 2px solid red;
+    }
+
+    100% {
+        color: var(--kolorTekstu);
+        border: 2px solid var(--kolorTekstu);
+    }
+
+}
+
+@keyframes dobraOdp {
+    0% {
+        border: 2px solid var(--kolorTekstu);
+        color: var(--kolorTekstu);
+    }
+
+    30% {
+        border: 2px solid rgb(0, 255, 0);
+        color: rgb(0, 255, 0);
+    }
+
+    100% {
+        border: 2px solid var(--kolorTekstu);
+        color: var(--kolorTekstu);
+    }
+}
+
+
+@keyframes transition {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes load {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #shortcuts {
+        display: none;
+    }
+
+    .content {
+        width: 90vw;
+        margin-left: 5vw;
+    }
+}
