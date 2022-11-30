@@ -4,7 +4,9 @@
     --czcionka: "Montserrat";
     --background: hsl(0, 0%, 0%);
     --akcent: hsl(0, 0%, 100%);
-    --kolorTekstu: hsl(0, 0%, 100%);
+    --kolor-karty: hsl(0, 0%, 100%);
+    --kolor-tekstu: rgb(255,255,255);
+    --kolor-cienia: hsl(0, 0%, 100%);
 }
 
 * {
@@ -15,7 +17,7 @@
 body {
     font-family: var(--czcionka);
     background-color: var(--background);
-    color: var(--kolorTekstu);
+    color: var(--kolor-tekstu);
 }
 
 h1 {
@@ -53,7 +55,7 @@ h3 {
 .modalTekst {
     background-color: var(--background);
     margin: 5% auto;
-    border: 2px solid var(--kolorTekstu);
+    border: 2px solid var(--kolor-tekstu);
     width: 80%;
     padding: 20px;
     text-align: center;
@@ -107,7 +109,7 @@ h3 {
     background-color: rgb(127, 128, 136);
     padding: 3px 10px;
     border-radius: 3px;
-    color: var(--kolorTekstu) !important;
+    color: #ffffff !important;
 }
 
 .kategoria {
@@ -119,9 +121,9 @@ h3 {
     width: 230px;
     margin-bottom: 30px;
     border-radius: 10px;
-    border: 1px solid var(--akcent);
+    border: 0.5px solid var(--akcent);
     cursor: pointer;
-    color: var(--kolorTekstu);
+    color: var(--kolor-karty);
 }
 
 .kategoria::after {
@@ -144,6 +146,92 @@ h3 {
     background-size: 110% 110%;
     filter: blur(0px) brightness(50%);
 }
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.wybor-motywu > fieldset {
+    border: 0;
+    display: flex;
+    gap: 2rem;
+    background: var(--background);
+    width: fit-content;
+    padding: 1rem 3rem;
+    border-radius: 0 0 1rem 1rem;
+    margin-inline: auto;
+    box-shadow: 0 -60px 999px var(--kolor-cienia);
+}
+
+.wybor-motywu input[type="radio"] {
+    appearance: none;
+    width: 1.3rem;
+    height: 1.3rem;
+    outline: 3px solid var(--radio-kolor, currentColor);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+.wybor-motywu input[type="radio"]:checked {
+    background-color: var(--radio-kolor);
+}
+
+input[type="radio"]#czarny {
+    --radio-kolor: rgb(71, 71, 71);
+}
+
+input[type="radio"]#ciemny {
+    --radio-kolor: #757c86  ;
+}
+
+input[type="radio"]#jasny {
+    --radio-kolor: #c2c2c2;
+}
+
+input[type="radio"]#abyss {
+    --radio-kolor: #010057;
+}
+
+input[type="radio"]#rozowy {
+    --radio-kolor: #ff6699;
+}
+
+:root:has(#jasny:checked) {
+    --background: hsl(0, 0%, 100%);
+    --kolor-tekstu: rgb(0,0,0);
+    --kolor-cienia: rgb(0,0,0);
+}
+
+:root:has(#czarny:checked) {
+    --background: hsl(0, 0%, 0%);
+    --kolor-tekstu: #ffffff;
+    --kolor-cienia: #ffffff;
+}
+
+:root:has(#ciemny:checked) {
+    --background: #626871;
+    --kolor-tekstu: #ffffff;
+    --kolor-cienia: #000000;
+}
+
+:root:has(#abyss:checked) {
+    --background: #00003d;
+    --kolor-tekstu: #ffffff;
+    --kolor-cienia: #1000ff;
+}
+
+:root:has(#rozowy:checked) {
+    --background: #ff7aa8;
+    --kolor-tekstu: #ffffff;
+    --kolor-cienia: #572839;    
+}
+
 
 
 #ti::after {
@@ -187,7 +275,7 @@ h3 {
     background-color: transparent;
     font-weight: bolder;
     font-size: 150%;
-    color: var(--kolorTekstu);
+    color: var(--kolor-tekstu);
     font-family: var(--czcionka);
     cursor: pointer;
 }
@@ -195,13 +283,14 @@ h3 {
 #numer {
     width: 17ch;
     border-radius: 30px;
-    border: 2px solid var(--kolorTekstu);
     background-color: transparent;
     place-self: center;
-    outline: none !important;
+    outline: 0;
+    border: none;
+    border: 2px solid var(--kolor-tekstu);
     height: 30px;
     text-align: center;
-    color: var(--kolorTekstu);
+    color: var(--kolor-tekstu);
     transition: all 0.5s;
     font-family: var(--czcionka);
     font-weight: bolder;
@@ -245,16 +334,16 @@ h3 {
     }
 
     100% {
-        color: var(--kolorTekstu);
-        border: 2px solid var(--kolorTekstu);
+        color: var(--kolor-tekstu);
+        border: 2px solid var(--kolor-tekstu);
     }
 
 }
 
 @keyframes dobraOdp {
     0% {
-        border: 2px solid var(--kolorTekstu);
-        color: var(--kolorTekstu);
+        border: 2px solid var(--kolor-tekstu);
+        color: var(--kolor-tekstu);
     }
 
     30% {
@@ -263,8 +352,8 @@ h3 {
     }
 
     100% {
-        border: 2px solid var(--kolorTekstu);
-        color: var(--kolorTekstu);
+        border: 2px solid var(--kolor-tekstu);
+        color: var(--kolor-tekstu);
     }
 }
 
