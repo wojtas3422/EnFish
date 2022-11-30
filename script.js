@@ -9,6 +9,7 @@ let ostatniJezykOdp
 let slowoPytane
 let ctrl
 let modalOpen
+let proby = 0
 let ekran = "main"
 let stareVal = ""
 let motywSchowany = true
@@ -63,6 +64,19 @@ function load() {
         }
     }, 100);
 }
+
+function updateText(ostatniJezykOdp) {
+    if (ostatniJezykOdp == "pl") {
+        pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#517aff;"> ${slowoPytane}</p> po polsku?`
+        slowoPytane = slowoPytane.toLowerCase()
+        poprawnaOdp = poprawnaOdp.toLowerCase()
+    } else {
+        pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#f74c4c;"> ${slowoPytane}</p> po angielsku?`
+        slowoPytane = slowoPytane.toLowerCase()
+        poprawnaOdp = poprawnaOdp.toLowerCase()
+    }
+}
+
 
 addEventListener("keydown", (event) => {
     let przycisk = event.key.toLowerCase()
@@ -128,6 +142,7 @@ addEventListener("keydown", (event) => {
 function menu() {
     overlay.style.animation = "transition 0.6s"
     overlay.style.display = "block"
+    
     setTimeout(() => {
         ekranGlowny.style.display = 'block'
         pytanie.style.display = 'none'
@@ -135,6 +150,9 @@ function menu() {
     }, 300);
     setTimeout(() => {
         overlay.style.display = "none"
+        proby = 0
+        let probyTekst = document.querySelector(".proby")
+        probyTekst.innerHTML = `Pozostało prób: ${4 - proby}`
     }, 500);
 
 }
@@ -242,9 +260,27 @@ function check(slowo_pl, slowo_en, odp, jezyk) {
             if (odp == slowo_en)
                 return true
         }
-    } else {
-        if (odp == slowo_pl)
-            return true
+    } else if (jezyk == "pl") {
+        let x = 0
+        slowo_pl = slowo_pl.split(" lub ")
+        if (typeof (slowo_pl) == "object") {
+            slowo_pl.forEach(element => {
+                if (element == odp) {
+                    x++
+                }
+            });
+            if (x >= 1) {
+                x = 0
+                return true
+            }
+            if (x < 1) {
+                x = 0
+                return false
+            }
+        } else {
+            if (odp == slowo_pl)
+                return true
+        }
     }
 }
 
@@ -288,19 +324,45 @@ function odpowiedz() {
 
                 odpField.style.animation = ""
             }, 400)
-            if (ostatniJezykOdp == "pl") {
-                pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#517aff;"> ${slowoPytane}</p> po polsku?`
-                slowoPytane = slowoPytane.toLowerCase()
-                poprawnaOdp = poprawnaOdp.toLowerCase()
-            } else {
-                pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#f74c4c;"> ${slowoPytane}</p> po angielsku?`
-                slowoPytane = slowoPytane.toLowerCase()
-                poprawnaOdp = poprawnaOdp.toLowerCase()
-            }
+            updateText(ostatniJezykOdp)
 
         } else {
             odpField.style.animation = "zlaOdp 0.3s"
             stareVal = odpField.value
+            proby++
+            let probyTekst = document.querySelector(".proby")
+            probyTekst.innerHTML = `Pozostało prób: ${4 - proby}`
+            console.log(proby)
+            if (proby == 4) {
+                proby = 0
+                let indexStary = index
+                probyTekst.innerHTML = `Poprawną odpowiedzią było: <span>${poprawnaOdp}</span>`
+                if (kategoria == "ti") {
+                    nowyIndex(indexStary, kategoria)
+                    slowo_pl = slowa.ti.pl[index]
+                    slowo_en = slowa.ti.en[index]
+                    zmienJezyk()
+                } else if (kategoria == "tziug") {
+                    nowyIndex(indexStary, kategoria)
+                    slowo_pl = slowa.tziug.pl[index]
+                    slowo_en = slowa.tziug.en[index]
+                    zmienJezyk()
+                } else if (kategoria == "tmr") {
+                    nowyIndex(indexStary, kategoria)
+                    slowo_pl = slowa.tmr.pl[index]
+                    slowo_en = slowa.tmr.en[index]
+                    zmienJezyk()
+                } else if (kategoria == "th") {
+                    nowyIndex(indexStary, kategoria)
+                    slowo_pl = slowa.th.pl[index]
+                    slowo_en = slowa.th.en[index]
+                    zmienJezyk()
+                }
+                updateText(ostatniJezykOdp)
+                setTimeout(() => {
+                    probyTekst.innerHTML = `Pozostało prób: ${4 - proby}`
+                }, 3000);
+            }
             odpField.value = ""
             setTimeout(function () {
                 odpField.style.animation = ""

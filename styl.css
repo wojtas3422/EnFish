@@ -21,7 +21,6 @@ body {
 }
 
 h1 {
-    margin-bottom: 20px;    
     margin-top: 20px;
 }
 
@@ -232,8 +231,6 @@ input[type="radio"]#rozowy {
     --kolor-cienia: #572839;    
 }
 
-
-
 #ti::after {
     background-image: url(obrazy/technik_informatyk.jpg);
 }
@@ -266,6 +263,16 @@ input[type="radio"]#rozowy {
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+}
+
+.proby {
+    height: 20px;
+    margin-top: 0%;
+    display: inline-block;
+}
+
+.proby > span {
+    font-size: 130%;
 }
 
 .return {
