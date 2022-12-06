@@ -67,11 +67,11 @@ function load() {
 
 function updateText(ostatniJezykOdp) {
     if (ostatniJezykOdp == "pl") {
-        pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#517aff;"> ${slowoPytane}</p> po polsku?`
+        pytanieTekst.innerHTML = `Co oznacza <p class="slowoPytania" style="color:#517aff;"> ${slowoPytane}</p> po polsku?`
         slowoPytane = slowoPytane.toLowerCase()
         poprawnaOdp = poprawnaOdp.toLowerCase()
     } else {
-        pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#f74c4c;"> ${slowoPytane}</p> po angielsku?`
+        pytanieTekst.innerHTML = `Co oznacza <p class="slowoPytania" style="color:#f74c4c;"> ${slowoPytane}</p> po angielsku?`
         slowoPytane = slowoPytane.toLowerCase()
         poprawnaOdp = poprawnaOdp.toLowerCase()
     }
@@ -220,7 +220,7 @@ function wybierzKategorie(category) {
             ostatniJezykOdp = "en"
             break;
     }
-    pytanieTekst.innerHTML = `Jak powiedzieć <p class="slowoPytania" style="color:#f74c4c;"> ${slowo_pl}</p> po angielsku?`
+    pytanieTekst.innerHTML = `Co oznacza <p class="slowoPytania" style="color:#f74c4c;"> ${slowo_pl}</p> po angielsku?`
     let overlay = document.querySelector(".overlay")
     overlay.style.animation = "transition 0.6s"
     overlay.style.display = "block"
@@ -285,7 +285,6 @@ function check(slowo_pl, slowo_en, odp, jezyk) {
 }
 
 function odpowiedz() {
-    console.log(slowo_en, slowo_pl)
     let odp = odpField
     function handleForm(e) { e.preventDefault(); }
     form.addEventListener('submit', handleForm);
