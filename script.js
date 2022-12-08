@@ -317,6 +317,9 @@ function odpowiedz() {
                 zmienJezyk()
             }
             odpField.style.animation = "dobraOdp 0.4s"
+            proby = 0
+            let probyTekst = document.querySelector(".proby")
+            probyTekst.innerHTML = `Pozostało prób: ${4 - proby}`
             stareVal = ''
             odp.value = ''
             setTimeout(function () {
