@@ -97,16 +97,20 @@ addEventListener("keydown", (event) => {
                 odpField.value = ""
                 wybierzKategorie("tziug")
                 ekran = "pytania"
+                break;
             case "3":
                 odpField.value = ""
                 wybierzKategorie("tmr")
                 ekran = "pytania"
+                break;
             case "4":
                 odpField.value = ""
                 wybierzKategorie("th")
                 ekran = "pytania"
+                break;
             case "escape":
                 modal.style.display = "none";
+                break;
         }
     } else if (ekran == "pytania") {
         switch (przycisk) {
