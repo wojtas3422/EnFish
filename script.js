@@ -26,13 +26,21 @@ fetch('./slowa.json')
     .then((json) => slowa = json);
 
 span.onclick = function () {
-    modal.style.display = "none";
+    modal.style.animation = "hideModal 0.3s"
+    setTimeout(() => {
+        modal.style.display = "none";
+        modal.style.animation = ""
+    }, 280); 
     modalOpen = false
 }
 
 window.onclick = function (event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        modal.style.animation = "hideModal 0.3s"
+        setTimeout(() => {
+            modal.style.display = "none";
+            modal.style.animation = ""
+        }, 280); 
         modalOpen = false
     }
 }
@@ -86,7 +94,7 @@ addEventListener("keydown", (event) => {
             modal.style.animation = "showModal 0.3s"
             setTimeout(() => {
                 modal.style.animation = ""
-            }, 250);
+            }, 280);
             modalOpen = true
         }
     }
