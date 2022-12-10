@@ -51,20 +51,19 @@
                 <input type="radio" name="motyw" id="abyss">
                 <label class="sr-only" for="motyw">różowy motyw</label>
                 <input type="radio" name="motyw" id="rozowy">
-                </fieldset>
+            </fieldset>
         </form>
         <h1>🐟EnFish🐟</h1>
         <h3 style="margin-bottom: 10px;">Strona z fiszkami od angielskiego.</h3>
         <h4>pytania w języku angielskim będą widoczne w kolorze <span style="color: #517aff;;">niebieskim</span>, a
             pytania w języku polskim <span style="color: #ff5252f5;">czerwonym.</span></h4>
-        <h4 id="shortcuts" style="margin-top: 0.5em;"> <span class="klawisz">ctrl</span> + <span
-                  class="klawisz">/</span> aby
+        <h4 id="shortcuts" style="margin-top: 0.5em;"> <span class="klawisz">ctrl</span> + <span class="klawisz">/</span> aby
             wyświetlić skróty klawiszowe</h4>
         <h1>Wybierz kategorie:</h1>
         <div id="kategoria">
-            <button class="kategoria" id="ti" onclick="wybierzKategorie('ti')">Technik Informatyk</button>
-            <button class="kategoria" id="tz" onclick="wybierzKategorie('tziug')">Technik żywienia</button>
-            <button class="kategoria" id="tmr" onclick="wybierzKategorie('tmr')">Technik mechanizacji rolnictwa</button>
+            <button class="kategoria" id="ti" onclick="wybierzKategorie('ti')">Technik informatyk</button>
+            <button class="kategoria" id="tz" onclick="wybierzKategorie('tziug')">Technik żywienia <br> i usług gastronomicznych</button>
+            <button class="kategoria" id="tmr" onclick="wybierzKategorie('tmr')">Technik mechanizacji rolnictwa i agrotroniki</button>
             <button class="kategoria" id="th" onclick="wybierzKategorie('th')">Technik hotelarstwa</button>
         </div>
     </div>
@@ -72,12 +71,12 @@
         <button class="return" onclick="menu()">Wróc do menu</button>
         <h1 id="pytanie"></h1>
         <div>
-        <span class="proby">Pozostało prób: 4</span>
-        <form id="form" onsubmit="odpowiedz(); return false">
-            <input autocomplete="off" placeholder="Odpowiedź..." id="numer" type="text">
-        </form>
+            <span class="proby">Pozostało prób: 4</span>
+            <form id="form" onsubmit="odpowiedz(); return false">
+                <input autocomplete="off" placeholder="Odpowiedź..." id="numer" type="text">
+            </form>
+        </div>
     </div>
-</div>
 </body>
 
 </html>

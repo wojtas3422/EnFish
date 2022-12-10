@@ -402,3 +402,25 @@ input[type="radio"]#rozowy {
         font-size: 120%;
     }
 }
+
+@keyframes hideModal {
+    0% {
+        opacity: 1;
+        translate: 0% 0%;
+    }
+    100% {
+        opacity: 0;
+        translate: 0% 20%;
+    }
+}
+
+@keyframes showModal {
+    0% {
+        opacity: 0;
+        translate: 0% 20%;
+    }
+    100% {
+        opacity: 1;
+        translate: 0% 0%;
+    }
+}

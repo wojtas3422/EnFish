@@ -83,6 +83,10 @@ addEventListener("keydown", (event) => {
     if (przycisk == "/") {
         if (ctrl == true) {
             modal.style.display = "block";
+            modal.style.animation = "showModal 0.3s"
+            setTimeout(() => {
+                modal.style.animation = ""
+            }, 250);
             modalOpen = true
         }
     }
@@ -109,7 +113,11 @@ addEventListener("keydown", (event) => {
                 ekran = "pytania"
                 break;
             case "escape":
-                modal.style.display = "none";
+                modal.style.animation = "hideModal 0.3s"
+                setTimeout(() => {
+                    modal.style.display = "none";
+                    modal.style.animation = ""
+                }, 250);    
                 break;
         }
     } else if (ekran == "pytania") {
