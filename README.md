@@ -1,6 +1,6 @@
 # EnFish :fish:
 <p align="center">
-    <img src="obrazy/logo.png">
+    <img src="obrazy/logo2.png">
     <!-- logo jest bardzo do zmiany -->
 </p>
 
